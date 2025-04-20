@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/index.html"><img src="C:\Users\MYPC\Downloads\horologix-high-resolution-logo.png"  width="125"></a> 
+        </div>
+         <nav>
+            <ul>
+                <li><a href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/index.html">Home</a></li>
+                <li><a href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/products.html">Products</a></li>
+                <li><a href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/about.html">About</a></li>
+                <li><a href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/account.html?">Account</a></li>
+            </ul>
+         </nav>
+         <a href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/cart.html"><img src="C:\Users\MYPC\Downloads\shopping-bag.png" width="30px" height="30px"></a>
+    </div> 
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="C:\Users\MYPC\OneDrive\Documents\caption project\pics\-473Wx593H-463727546-multi-MODEL.avif" width="125">
+                        <div>
+                            <p>Maserati Sfida watch</p>
+                            <small>price: ₹ 16,495</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1" class="quantity" onchange="updateCart()"></td>
+                <td class="subtotal">₹ 16,495</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="C:\Users\MYPC\OneDrive\Documents\caption project\pics\ax7140set_1.jpg" width="125">
+                        <div>
+                            <p>Armani Exchange</p>
+                            <small>price: ₹19,495</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1" class="quantity" onchange="updateCart()"></td>
+                <td class="subtotal">₹19,495</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="C:\Users\MYPC\OneDrive\Documents\caption project\pics\LE1196SET_main.webp" width="125">
+                        <div>
+                            <p>Marvel x Fossil Limited Edition DEADPOOL</p>
+                            <small>price: ₹ 26,995.00</small>
+                            <a href="">Remove</a>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="number" value="1" class="quantity" onchange="updateCart()"></td>
+                <td class="subtotal">₹ 26,995.00</td>
+            </tr>
+        </table>
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>₹ 62,985</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>₹ 6,298.5</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>₹ 69,283</td>
+                </tr>    
+            </table>
+            
+        </div>
+        <div class="btn-container" style="margin-top: 20px; text-align: center;">
+            <button class="btn" onclick="showPopup()">Buy Now</button>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="C:\Users\MYPC\OneDrive\Documents\caption project\pics\Google_Play_Store_badge_EN.svg.png" width="125">
+                        <img src="C:\Users\MYPC\OneDrive\Documents\caption project\pics\Available_on_the_App_Store_(black).png" width="125">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="C:\Users\MYPC\OneDrive\Documents\caption project\pics\horologix-high-resolution-logo.png" width="125">
+                    <p>Download App for Android and ios mobile phone.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">Copyright 2025 - Horologix</p>
+        </div>
+    </div>
+    <script>
+        function updateCart() {
+            const quantities = document.querySelectorAll(".quantity");
+            const subtotals = document.querySelectorAll(".subtotal");
+            const prices = [16495, 19495, 26995]; // Prices in order of your products
+    
+            let total = 0;
+    
+            quantities.forEach((input, index) => {
+                const quantity = parseInt(input.value);
+                const subtotal = prices[index] * quantity;
+                subtotals[index].innerText = `₹ ${subtotal.toLocaleString()}`;
+                total += subtotal;
+            });
+            
+    
+            // Update totals
+            const tax = total * 0.10; // 10% tax
+            const grandTotal = total + tax;
+    
+            document.querySelector(".total-price table").innerHTML = `
+                <tr>
+                    <td>Subtotal</td>
+                    <td>₹ ${total.toLocaleString()}</td>
+                </tr>
+                <tr>
+                    <td>Tax</td>
+                    <td>₹ ${tax.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>₹ ${grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                </tr>    
+            `;
+        }
+        function showPopup() {
+            const totalText = document.querySelector(".total-price table").rows[2].cells[1].innerText;
+            alert(` payment successful! \nThank you for shopping!\nYour total amount is ${totalText}`);
+            window.location.href="file:///C:/Users/MYPC/OneDrive/Documents/caption%20project/products.html"
+        }
+
+    </script>
+    
+    
+</body>
+</html>
+
+    
+
